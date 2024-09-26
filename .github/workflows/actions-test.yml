@@ -1,0 +1,17 @@
+name: OIDC Debugger
+
+on:
+  pull_request:
+
+jobs:
+  oidc-debugger:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+      id-token: write
+    steps:
+      - name: OIDC Debugger
+        uses: github/actions-oidc-debugger@main
+        with:
+          audience: "${{ github.server_url }}/${{ github.repository_owner }}"
